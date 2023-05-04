@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="main_heading" style="text-align: center; font-style: bold;">
+    {{ "PAYMENTS" }}
+  </div>
+  <hr>
+  <br>
+  <br>
+  <div class="tabs__navbar">
+    <nav mat-tab-nav-bar class="tabs__nav" [tabPanel]="tabPanel">
+      <a *ngFor="let item of nav" mat-tab-link (click)="activeLink = item.path" [routerLink]="[item.path]"
+        [active]="activeLink === item.path">
+        {{item.name}}
+      </a>
+    </nav>
+  </div>
+</div>
+
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>

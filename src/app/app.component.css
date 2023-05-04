@@ -1,0 +1,9 @@
+
+
+.tabs__navbar {
+  background-color: red;
+
+}
+ mat-mdc-tab-links {
+    flex-direction: column!important;
+  }
