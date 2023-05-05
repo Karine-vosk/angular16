@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import {Component} from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {RouterModule} from '@angular/router';
 
@@ -11,7 +12,7 @@ import {RouterModule} from '@angular/router';
   imports: [RouterModule, MatTabsModule]
 })
 export class AppComponent {
-  title = 'Angular15App'
+  title = 'Angular16App'
 
 }
 

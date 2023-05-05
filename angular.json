@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular15App": {
+    "Angular16App": {
       "projectType": "application",
       "schematics": {
         "standalone": true
@@ -15,7 +15,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular15-app",
+            "outputPath": "dist/angular16-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Angular15App:build:production"
+              "browserTarget": "Angular16App:build:production"
             },
             "development": {
-              "browserTarget": "Angular15App:build:development"
+              "browserTarget": "Angular16App:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular15App:build"
+            "browserTarget": "Angular16App:build"
           }
         },
         "test": {

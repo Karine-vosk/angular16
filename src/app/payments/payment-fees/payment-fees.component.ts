@@ -1,6 +1,7 @@
-import { Component, signal} from '@angular/core';
+import {Component, computed, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
+import {Observable} from 'rxjs';
 
 let userId = 0;
 const uuid = () => ++userId;
@@ -9,6 +10,29 @@ export interface User {
   id: number;
   name: string;
 }
+
+//creating
+const count = signal(0);
+// //reading: get signal
+// console.log(count());
+
+// //setting signal
+// count.set(1);
+// console.log(count(), 'change');
+
+// //updating signal
+// count.update((value)=> value + 1);
+// console.log(count(), 'upd count');
+
+// //deriving signals computing
+// const doubleCount = computed(() => count() * 2);
+// console.log(doubleCount(), 'doubleCount');
+// //when we update a signal, the signals depending on it are notified
+// //that they should recalculate when are called again (lazily)
+// count.update((value) => value + 1);
+// console.log(count(), 'count');
+// console.log(doubleCount(), 'doubleCount');
+
 @Component({
   selector: 'app-payment-fees',
   standalone: true,
@@ -42,5 +66,14 @@ export class PaymentFeesComponent {
 
   removeAll() {
     this.users.set([]);
+  }
+
+
+  ngOnInit(): void {
+
+  }
+
+  constructor() {
+
   }
 }

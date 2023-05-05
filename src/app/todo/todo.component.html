@@ -1,1 +1,14 @@
 <p>todo works!</p>
+<!-- <p>{{counter()}}</p> -->
+<button (click)="openDetails()">open details</button>
+<button (click)="onChange()">change</button>
+<ng-container *ngIf="isOpen">
+  <app-more-details [exPush]="exPush"></app-more-details>
+</ng-container>
+
+<hr>
+<app-todo-item *ngFor="let todo of todoList" [todo]="todo" [primitiveValue]="primitiveValue"></app-todo-item>
+
+<div><input type="text" (keyup)="onChangeText()"></div>
+<div><button (click)="changeArray()">ChangeArray</button></div>
+
