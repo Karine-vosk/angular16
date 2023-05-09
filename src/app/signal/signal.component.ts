@@ -4,9 +4,9 @@ import {CounterService} from '../core/services/counter.service';
 
 
 // //we can create a box with this initial value
-// const counter = signal(0);
+ const counter = signal(0);
 // //reading the counter value
-// console.log(counter(), 'counter'); //get() opens a box
+console.log(counter(), 'counter'); //get() opens a box
 
 // //set new value
 // counter.set(1);
@@ -20,6 +20,7 @@ import {CounterService} from '../core/services/counter.service';
 // //creating a computed signal //follow other boxes
 // const isEven = computed(() => counter() % 2 === 0);
 
+
 @Component({
   selector: 'app-signal',
   standalone: true,
@@ -28,7 +29,7 @@ import {CounterService} from '../core/services/counter.service';
   styleUrls: ['./signal.component.css']
 })
 
-export class SignalComponent {
+export default class SignalComponent {
   // counter = signal(0);
   @Input() pushEx: string = '';
   counterService = inject(CounterService);
@@ -42,4 +43,20 @@ export class SignalComponent {
 
     this.counterService.counter.update(c => c + 1);
   }
+
+
+  valueOne = signal(1);
+  valueTwo = signal(15);
+
+  derectiveValue = computed(() => this.valueOne() * this.valueTwo());
+
+  changeValues() {
+    this.valueOne.set(2);
+    this.valueTwo.set(33);
+  }
+  ngOnInit(): void {
+    this.changeValues();
+
+  }
+
 }

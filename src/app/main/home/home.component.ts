@@ -34,16 +34,16 @@ const count = signal(0);
 // console.log(doubleCount(), 'doubleCount');
 
 @Component({
-  selector: 'app-payment-fees',
+  selector: 'app-home',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './payment-fees.component.html',
-  styleUrls: ['./payment-fees.component.css'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
   template: '{{ title }}',
   //changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
-export class PaymentFeesComponent {
+export class HomeComponent {
   users: any = signal<User[]>([]);
 
   addUser(name: string) {
@@ -69,11 +69,16 @@ export class PaymentFeesComponent {
   }
 
 
+  value: string = '';
   ngOnInit(): void {
 
   }
 
   constructor() {
 
+  }
+
+  changeStatic() {
+    this.value = 'new trigger'
   }
 }

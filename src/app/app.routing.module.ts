@@ -4,17 +4,44 @@ export const routes: Route[] = [
   //both are lazy loading examples
   {
     path: '',
-    redirectTo: 'payments',
+    redirectTo: 'main',
     pathMatch: 'full'
   },
-  {path: 'payments', loadChildren: () => import('./payments/payments.routing').then(mod => mod.PAYMENT_ROUTES)},
-  {path: 'todo', loadComponent: () => import('./todo/todo.component').then(mod => mod.TodoComponent), title: 'todo'},
-  {path: 'payment-fees', loadComponent: () => import('./payments/payment-fees/payment-fees.component').then(mod => mod.PaymentFeesComponent), title: 'payment-fees'},
-  {path: 'signal', loadComponent: () => import('./signal/signal.component').then(mod => mod.SignalComponent), title: 'signal'},
+  //child routes
+  // {
+  //   path: 'home',
+  //   loadChildren: () => import('./main/home.routing').then(mod => mod.MAIN_ROUTES)
+  // },
+  //or
+  {
+    path: 'main',
+    loadChildren: () => import('./main/main.routing')
+  },
+  //compenents
+  //we can use both of them
+  {
+    path: 'todo/:id', loadComponent: () => import('./todo/todo.component'),
+    title: 'todo',
+    resolve: {resolveFoo: () => 'My resolved data'}
+  },
+  //or
+  {
+    path: 'home',
+    loadComponent: () => import('./main/home/home.component').then(mod => mod.HomeComponent),
+    title: 'home'
+  },
+  {
+    path: 'signal',
+    loadComponent: () => import('./signal/signal.component'),
+    title: 'signal'
+  },
+  {
+    path: 'mistakes',
+    loadComponent: () => import('./ng-mistakes/ng-mistakes.component'),
+    title: 'mistakes'
+  },
 
-  //without then
-  // {path: '', loadChildren: () => import('./payments/payments.routing')}
-  // ... rest of the routes
+
 ];
 
 

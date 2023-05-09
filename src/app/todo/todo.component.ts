@@ -12,8 +12,7 @@ import {IList} from '../core/Ilist.interface';
   standalone: true,
   imports: [CommonModule, MoreDetailsComponent, TodoItemComponent]
 })
-export class TodoComponent {
-  @Input() query?: string;
+export default class TodoComponent {
   counterService = inject(CounterService);
   counter = this.counterService.counter;
   //instead of this
@@ -44,8 +43,9 @@ export class TodoComponent {
   ];
   primitiveValue: string = 'Primitive Value'
 
+
   ngOnInit(): void {
-    this.query = 'two';
+
   }
 
   openDetails(): void {
@@ -65,14 +65,14 @@ export class TodoComponent {
 
   changeArray(): void {
     //it is changed because it is primitive value
-    this.primitiveValue = 'it is changed';
+   // this.primitiveValue = 'it is changed';
     //it doesn't change because it's reference
     //this.todoList[0].name = 'changeText';
 
    //We do restructuring object
-    // this.todoList[0] = {
-    //   ...this.todoList[0], name: 'changeText'
-    // };
+    this.todoList[0] = {
+      ...this.todoList[0], name: 'changeText'
+    };
     console.log(this.todoList);
 
   };

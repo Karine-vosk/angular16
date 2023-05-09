@@ -1,5 +1,5 @@
 
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {RouterModule} from '@angular/router';
 
@@ -8,11 +8,28 @@ import {RouterModule} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
- // template: '{{ title }}',  // Now compiles!
+  // template: '{{ title }}',  // Now compiles!
   imports: [RouterModule, MatTabsModule]
 })
 export class AppComponent {
-  title = 'Angular16App'
+  title = 'Angular16App';
 
+  @Input() query?: string;
+  @Input('id') pathId?: string;
+  @Input('title') dataTitle?: string;
+  @Input('searchData') resolvedData?: any;
+  ngOnInit(): void {
+    this.dataTitle = 'inch vor bn';
+    this.pathId = '2';
+
+
+    console.log(
+       'do something with the', this.query = 'some-change',
+        'do something with the,', this.pathId,
+        'do something with the,', this.dataTitle,
+       ' do something with the', this.resolvedData
+        );
+
+  }
 }
 

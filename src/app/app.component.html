@@ -1,13 +1,17 @@
 <div class="tabs__navbar">
   <nav mat-tab-nav-bar class="tabs__nav" [tabPanel]="tabPanel">
-    <a mat-tab-link  [routerLink]="['/todo']">
+     <!-- [routerLink]="['/todo/', pathId, 'queryParams']" -->
+    <a mat-tab-link  [routerLink]="['/todo/', pathId,]">
       Todo
     </a>
-    <a mat-tab-link  [routerLink]="['/payment-fees']">
-      fees
+    <a mat-tab-link  [routerLink]="['/home']">
+      Home
     </a>
     <a mat-tab-link  [routerLink]="['/signal']">
       signal
+    </a>
+    <a mat-tab-link  [routerLink]="['/mistakes']">
+      mistakes
     </a>
   </nav>
 </div>

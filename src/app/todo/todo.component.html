@@ -7,7 +7,8 @@
 </ng-container>
 
 <hr>
-<app-todo-item *ngFor="let todo of todoList" [todo]="todo" [primitiveValue]="primitiveValue"></app-todo-item>
+<!-- self closing tags -->
+<app-todo-item *ngFor="let todo of todoList" [todo]="todo" [primitiveValue]="primitiveValue">
 
 <div><input type="text" (keyup)="onChangeText()"></div>
 <div><button (click)="changeArray()">ChangeArray</button></div>

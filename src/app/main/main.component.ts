@@ -4,22 +4,22 @@ import {Router, RouterModule} from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
 
 @Component({
-  selector: 'app-payments',
+  selector: 'app-main',
   standalone: true,
   imports: [CommonModule, RouterModule, MatTabsModule],
-  templateUrl: './payments.component.html',
-  styleUrls: ['./payments.component.css']
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css']
 })
-export class PaymentsComponent implements OnInit {
+export class MainComponent implements OnInit {
   nav = [
     {
-      path: '/payments',
-      name: 'PAYMENTS_FEES',
+      path: '/main',
+      name: 'First tab',
       enabled: true
     },
     {
-      path: '/payments/payment-transactions',
-      name: 'PAYMENT_TRANSACTIONS',
+      path: '/main/second-tab',
+      name: 'Second tab',
       enabled: true
     }
   ];
