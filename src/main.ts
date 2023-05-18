@@ -15,13 +15,15 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes, withComponentInputBinding(),
-     //withDebugTracing(),
-    // withRouterConfig({onSameUrlNavigation: 'reload'})
+    provideRouter(routes,
+      withComponentInputBinding(),
+      //bindToComponentInputs: true
+     // withDebugTracing(),
+      //withRouterConfig({onSameUrlNavigation: 'reload'})
     ),
     importProvidersFrom(HttpClientModule),
     //provideZoneChangeDetection({eventCoalescing: true}),
-    //provideClientHydration()
+   //provideClientHydration()
   ]
 })
   .catch(err => console.error(err));

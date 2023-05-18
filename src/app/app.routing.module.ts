@@ -40,8 +40,6 @@ export const routes: Route[] = [
     loadComponent: () => import('./ng-mistakes/ng-mistakes.component'),
     title: 'mistakes'
   },
-
-
 ];
 
 

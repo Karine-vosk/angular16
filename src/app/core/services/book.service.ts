@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, map} from 'rxjs';
 
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +11,12 @@ export class BookService {
   private gameUrl = 'https://simple-books-api.glitch.me/books';
   constructor(private http: HttpClient) { }
 
-  getGames(): Observable<any> {
-    return this.http.get<any>(this.gameUrl, {
-      // params: {
-      //   type
-      // }
-    });
+  getGames(type: string): Observable<any[]> {
+    const params = new HttpParams();
+    params.set('query', type);
+    return this.http.get<string[]>(this.gameUrl, {params}).pipe(map(res => res.map(res => new Object(res))));
   }
+
 
    foo = new Observable((subscriber) => {
     console.log('Hello');

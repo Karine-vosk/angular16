@@ -18,7 +18,8 @@ export default class NgMistakesComponent {
   //bookService = inject(BookService);
   constructor(private bookService: BookService) {
     const type: string = 'non-fiction';
-    this.booksList$ = this.bookService.getGames();
+   // debugger
+    this.booksList$ = this.bookService.getGames(type);
   }
 
   ngOnInit(): void {
@@ -31,7 +32,7 @@ export default class NgMistakesComponent {
 
   getGames() {
     const type: string = 'non-fiction';
-    this.transSubscription = this.bookService.getGames().subscribe(res => {
+    this.transSubscription = this.bookService.getGames(type).subscribe(res => {
       setTimeout(() => {
         this.list = res;
         // interval(100).subscribe(count => {
@@ -39,14 +40,10 @@ export default class NgMistakesComponent {
 
         // });
       }, 100);
-
-
     });
-
   }
 
   ngOnDestroy(): void {
     this.transSubscription?.unsubscribe();
-
   }
 }

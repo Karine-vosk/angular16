@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, DestroyRef, Input, inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Building, IList} from 'src/app/core/Ilist.interface';
+import {IList} from 'src/app/core/Ilist.interface';
 
 @Component({
   selector: 'app-todo-item',
@@ -10,8 +10,8 @@ import {Building, IList} from 'src/app/core/Ilist.interface';
   styleUrls: ['./todo-item.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodoItemComponent {
-  @Input() todo: IList = {
+export class TodoItemComponent{
+  @Input({required: true}) todo: IList = {
     isCompleted: false
   };
 
@@ -25,4 +25,10 @@ export class TodoItemComponent {
   changeText(): void {
     this.todo.name = 'Text changed from inside';
   }
+
+  constructor() {
+    inject(DestroyRef).onDestroy(() => console.log('destroyed this page'));
+  }
+
+
 }

@@ -13,7 +13,7 @@ import {SecondPageComponent} from './second-page/second-page.component';
 //       {path: 'second-tab', component: SecondPageComponent, title: 'second- tab'},
 //     ]
 // },
-// ] as Route[];
+// ];
 
 export default [
   {path: '', redirectTo: 'home', pathMatch: 'full'},

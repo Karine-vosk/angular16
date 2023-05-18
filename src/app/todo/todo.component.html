@@ -1,15 +1,15 @@
 <p>todo works!</p>
-<!-- <p>{{counter()}}</p> -->
+<p>Counter is from Counter service: {{counter()}}</p>
 <button (click)="openDetails()">open details</button>
 <button (click)="onChange()">change</button>
 <ng-container *ngIf="isOpen">
-  <app-more-details [exPush]="exPush"></app-more-details>
+  <app-more-details [counter]="counter()"></app-more-details>
 </ng-container>
 
 <hr>
-<!-- self closing tags -->
-<app-todo-item *ngFor="let todo of todoList" [todo]="todo" [primitiveValue]="primitiveValue">
+
 
 <div><input type="text" (keyup)="onChangeText()"></div>
-<div><button (click)="changeArray()">ChangeArray</button></div>
-
+<div style="margin: 10px 0"><button (click)="changeArray()">Change Value</button></div>
+<!-- self closing tags -->
+<app-todo-item *ngFor="let todo of todoList" [todo]="todo" [primitiveValue]="primitiveValue">

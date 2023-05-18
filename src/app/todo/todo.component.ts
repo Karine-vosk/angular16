@@ -4,6 +4,7 @@ import {CounterService} from '../core/services/counter.service';
 import {MoreDetailsComponent} from './more-details/more-details.component';
 import {TodoItemComponent} from './todo-item/todo-item.component';
 import {IList} from '../core/Ilist.interface';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -14,16 +15,15 @@ import {IList} from '../core/Ilist.interface';
 })
 export default class TodoComponent {
   counterService = inject(CounterService);
-  counter = this.counterService.counter;
+  counter: any = this.counterService.counter;
+  activeRoute = inject(ActivatedRoute);
   //instead of this
   // constructor(public counterService: CounterService) {
 
   // }
 
   isOpen: boolean = false;
-  exPush: number = 1;
 
-  // ex for input change detection
   todoList: IList[] = [
     {
       id: 1,
@@ -41,11 +41,19 @@ export default class TodoComponent {
       isCompleted: false
     }
   ];
-  primitiveValue: string = 'Primitive Value'
+  primitiveValue: string = 'Primitive Value';
 
+  @Input() query?: string;
+  @Input('id') pathId?: string;
+  @Input('title') dataTitle?: string;
+  @Input('searchData') resolvedData?: any;
 
   ngOnInit(): void {
+    console.log(this.pathId);
 
+    // this.activeRoute.params.subscribe(res => {
+    //   console.log(res, 'res');
+    // })
   }
 
   openDetails(): void {
@@ -55,24 +63,23 @@ export default class TodoComponent {
   }
 
   onChange(): void {
-    this.exPush++;
+    this.counter.set(2)
   }
 
   onChangeText(): void {
     console.log('changeText');
-
   }
 
   changeArray(): void {
     //it is changed because it is primitive value
-   // this.primitiveValue = 'it is changed';
+   //  this.primitiveValue = 'it is changed';
     //it doesn't change because it's reference
     //this.todoList[0].name = 'changeText';
 
    //We do restructuring object
-    this.todoList[0] = {
-      ...this.todoList[0], name: 'changeText'
-    };
+    // this.todoList[0] = {
+    //   ...this.todoList[0], name: 'changeText'
+    // };
     console.log(this.todoList);
 
   };

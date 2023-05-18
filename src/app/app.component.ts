@@ -8,27 +8,28 @@ import {RouterModule} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  // template: '{{ title }}',  // Now compiles!
+  template: '{{ title }}',  // Now compiles!
   imports: [RouterModule, MatTabsModule]
 })
 export class AppComponent {
-  title = 'Angular16App';
+  id: string = ''
 
-  @Input() query?: string;
-  @Input('id') pathId?: string;
-  @Input('title') dataTitle?: string;
-  @Input('searchData') resolvedData?: any;
+  // @Input() query?: string;
+  // @Input('id') pathId?: string;
+  // @Input('title') dataTitle?: string;
+  // @Input('searchData') resolvedData?: any;
   ngOnInit(): void {
-    this.dataTitle = 'inch vor bn';
-    this.pathId = '2';
+    // this.dataTitle = 'inch vor bn';
+    // this.pathId = '222';
 
+    this.id = 'input'
 
-    console.log(
-       'do something with the', this.query = 'some-change',
-        'do something with the,', this.pathId,
-        'do something with the,', this.dataTitle,
-       ' do something with the', this.resolvedData
-        );
+    // console.log(
+    //   'do something with the', this.query = 'some-change',
+    //   'do something with the,', this.pathId,
+    //   'do something with the,', this.dataTitle,
+    //   'do something with the', this.resolvedData
+    // );
 
   }
 }
